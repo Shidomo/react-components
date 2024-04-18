@@ -1,0 +1,16 @@
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.sub-title {
+    margin-bottom: 30px;
+}
+.text-yellow {
+    color: rgb(234 179 8);
+}
