@@ -1,4 +1,4 @@
 import "./buttonStyle.css";
-export const Button = ({ btnText, btnType = "button" }) => {
-  return <button type={btnType}> {btnText}</button>;
+export const Button = ({ text, type = "button" }) => {
+  return <button type={type}> {text}</button>;
 };
