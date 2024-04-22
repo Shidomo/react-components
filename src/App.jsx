@@ -10,13 +10,13 @@ function App() {
     <div className="wrapper">
       <Header>
         <Form>
-          <Input inputPlaceholder="Search for the order #"></Input>
+          <Input placeholder="Search for the order #"></Input>
         </Form>
       </Header>
       <Main>
         <Form formClass="login-form">
-          <Input inputType="text" inputPlaceholder="Your full name" />
-          <Button btnText="Login" />
+          <Input type="text" placeholder="Your full name" />
+          <Button text="Login" />
         </Form>
       </Main>
     </div>
