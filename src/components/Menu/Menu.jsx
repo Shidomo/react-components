@@ -1,5 +1,5 @@
 import "./menuStyle.css";
-import { MenuList } from "./MenuList/MenuList.jsx";
+import { MenuList } from "./MenuList.jsx";
 
 export const Menu = ({ items }) => {
   return (
