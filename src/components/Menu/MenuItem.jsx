@@ -1,12 +1,9 @@
 import { useState } from "react";
-import {
-  handleIncrement,
-  handleDecrement,
-  handleDelete,
-} from "../../hooks/countWork.js";
+import { handleActions } from "../../hooks/countWork.js";
 
 export const MenuItem = ({ pizza }) => {
   const [countPizza, setCountPizza] = useState(0);
+  const countAction = handleActions(countPizza, setCountPizza, pizza);
 
   return (
     <li className="pizza">
@@ -25,7 +22,7 @@ export const MenuItem = ({ pizza }) => {
                 <button
                   className="button"
                   onClick={() => {
-                    handleIncrement(countPizza, setCountPizza, pizza);
+                    countAction.handleIncrement();
                   }}
                 >
                   Add to Cart
@@ -35,7 +32,7 @@ export const MenuItem = ({ pizza }) => {
                   <button
                     className="button"
                     onClick={() => {
-                      handleIncrement(countPizza, setCountPizza, pizza);
+                      countAction.handleIncrement();
                     }}
                   >
                     +
@@ -43,12 +40,12 @@ export const MenuItem = ({ pizza }) => {
                   <span>{countPizza}</span>
                   <button
                     onClick={() => {
-                      handleDecrement(countPizza, setCountPizza, pizza);
+                      countAction.handleDecrement();
                     }}
                   >
                     -
                   </button>
-                  <button onClick={() => handleDelete(setCountPizza)}>
+                  <button onClick={() => countAction.handleDelete()}>
                     Delete
                   </button>
                 </div>
