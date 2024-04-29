@@ -3,6 +3,11 @@
     gap: 16px;
     padding: 8px 0;
 }
+.changeBtn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
 .pizza__image {
     width: 100px;
