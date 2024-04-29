@@ -1,16 +1,16 @@
-export const handleIncrement = (countPizza, setCountPizza, pizza) => {
-  setCountPizza((prevState) => prevState + 1);
-  console.log(`Added ${countPizza + 1}, ${pizza.name} to cart`);
+export const handleIncrement = (count, setCount, object) => {
+  setCount((prevState) => prevState + 1);
+  console.log(`Added ${count + 1}, ${object.name} to cart`);
 };
 
-export const handleDecrement = (countPizza, setCountPizza, pizza) => {
-  if (countPizza > 0) {
-    setCountPizza((prevState) => prevState - 1);
-    console.log(`add ${countPizza - 1}, ${pizza.name} to cart`);
+export const handleDecrement = (count, setCount, object) => {
+  if (count > 0) {
+    setCount((prevState) => prevState - 1);
+    console.log(`add ${count - 1}, ${object.name} to cart`);
   }
 };
 
-export const handleDelete = (setCountPizza) => {
-  setCountPizza(0);
+export const handleDelete = (setCount) => {
+  setCount(0);
   console.log(`delete all count`);
 };
