@@ -21,7 +21,7 @@ function App() {
           <Button text="Login" />
         </Form>
       </Main>*/}
-      <Menu items={pizzas} />
+      <Menu />
     </div>
   );
 }
