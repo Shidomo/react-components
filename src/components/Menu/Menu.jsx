@@ -34,7 +34,7 @@ export const Menu = () => {
     return <p>Error: {error}</p>;
   }
   return (
-    <div>
+    <div className="pizza-container">
       <h2>Menu</h2>
       <MenuList items={menuItems} />
     </div>

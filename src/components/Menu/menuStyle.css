@@ -1,3 +1,6 @@
+.pizza-container {
+    padding-top: 75px;
+}
 .pizza {
     display: flex;
     gap: 16px;

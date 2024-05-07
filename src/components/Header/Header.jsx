@@ -1,8 +1,17 @@
 import "./headerStyle.css";
+import { Link } from "react-router-dom";
 export const Header = ({ children }) => {
   return (
     <header className="header">
-      <a className="logo">Pizza Day</a>
+      <Link to="/" className="logo">
+        Pizza Day
+      </Link>
+      <Link to="/menu" className="logo">
+        Menu
+      </Link>
+      <Link to="/login" className="logo">
+        Login
+      </Link>
       {children}
     </header>
   );
