@@ -1,4 +1,5 @@
-import { MenuItem } from "./MenuItem.jsx";
+import React from "react";
+import { MenuItem } from "./MenuItem.tsx";
 
 export const MenuList = ({ items }) => {
   return (

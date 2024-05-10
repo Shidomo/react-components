@@ -1,14 +1,15 @@
 import "./App.css";
-import { Form } from "./components/Form/Form.jsx";
-import { Input } from "./components/Input/Input.jsx";
-import { Button } from "./components/Button/Button.jsx";
-import { Main } from "./components/Main/Main.jsx";
-import { Menu } from "./components/Menu/Menu.jsx";
-import { Layout } from "./pages/Layout.jsx";
-import { Login } from "./components/Login/Login.jsx";
+import { Form } from "./components/Form/Form.tsx";
+import { Input } from "./components/Input/Input.tsx";
+import { Button } from "./components/Button/Button.tsx";
+import { Main } from "./components/Main/Main.tsx";
+import { Menu } from "./components/Menu/Menu.tsx";
+import { Layout } from "./pages/Layout.tsx";
+import { Login } from "./components/Login/Login.tsx";
 import { Routes, Route } from "react-router-dom";
+import React, { FC } from "react";
 
-function App() {
+const App: FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -28,6 +29,6 @@ function App() {
       </Route>
     </Routes>
   );
-}
+};
 
 export default App;

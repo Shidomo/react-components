@@ -1,14 +1,14 @@
 import "./menuStyle.css";
-import { MenuList } from "./MenuList.jsx";
-import { useEffect, useState } from "react";
+import { MenuList } from "./MenuList.tsx";
+import React, { FC, useEffect, useState } from "react";
 
-export const Menu = () => {
+export const Menu: FC = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  useEffect((): void => {
+    const fetchData = async (): Promise<void> => {
       try {
         const response = await fetch(
           "https://react-fast-pizza-api.onrender.com/api/menu",

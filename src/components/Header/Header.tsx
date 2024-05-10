@@ -1,6 +1,12 @@
 import "./headerStyle.css";
 import { Link } from "react-router-dom";
-export const Header = ({ children }) => {
+import React, { FC, ReactNode } from "react";
+
+interface HeaderProps {
+  children?: ReactNode;
+}
+
+export const Header: FC<HeaderProps> = ({ children }) => {
   return (
     <header className="header">
       <Link to="/" className="logo">

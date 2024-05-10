@@ -1,6 +1,11 @@
 import "./mainStyle.css";
+import React, { FC, ReactNode } from "react";
 
-export const Main = ({ children }) => {
+interface Props {
+  children?: ReactNode;
+}
+
+export const Main: FC<Props> = ({ children }) => {
   return (
     <main className="content">
       <h1 className="title">
