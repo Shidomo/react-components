@@ -7,7 +7,7 @@ import { Menu } from "./components/Menu/Menu.tsx";
 import { Layout } from "./pages/Layout.tsx";
 import { Login } from "./components/Login/Login.tsx";
 import { Routes, Route } from "react-router-dom";
-import React, { FC } from "react";
+import { FC } from "react";
 
 const App: FC = () => {
   return (
