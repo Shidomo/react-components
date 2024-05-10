@@ -2,7 +2,7 @@ import { Header } from "../components/Header/Header.js";
 import { Outlet } from "react-router-dom";
 import { Input } from "../components/Input/Input.js";
 import { Form } from "../components/Form/Form.js";
-import React, { FC, JSX } from "react";
+import { FC } from "react";
 
 export const Layout: FC = () => {
   return (

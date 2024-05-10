@@ -1,5 +1,5 @@
 import "./inputStyle.css";
-import React, { FC } from "react";
+import { FC } from "react";
 
 interface Props {
   type?: "text" | "number" | "password" | "email";

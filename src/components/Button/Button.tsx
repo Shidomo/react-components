@@ -1,5 +1,5 @@
 import "./buttonStyle.css";
-import React, { FC } from "react";
+import { FC } from "react";
 
 interface ButtonProps {
   text: string;

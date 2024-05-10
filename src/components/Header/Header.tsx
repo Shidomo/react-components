@@ -1,6 +1,6 @@
 import "./headerStyle.css";
 import { Link } from "react-router-dom";
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 interface HeaderProps {
   children?: ReactNode;

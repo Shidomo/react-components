@@ -5,7 +5,6 @@
     "module": "esnext",
     "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,8 +12,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "declaration": true,
     "jsxImportSource": "react",
-    "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true
   },
   "include": ["src/**/*"],

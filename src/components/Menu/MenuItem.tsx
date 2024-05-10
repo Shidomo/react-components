@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
-export const MenuItem = ({ pizza }) => {
-  const [countPizza, setCountPizza] = useState(0);
+interface Pizza {
+  name: string;
+  imageUrl: string;
+  ingredients: string[];
+  soldOut: boolean;
+  unitPrice: number;
+}
 
-  const handleActions = (count, setCount, object) => {
-    const handleIncrement = () => {
-      setCount((prevState) => prevState + 1);
+interface Props {
+  pizza: Pizza;
+}
+
+interface ActionHandlers {
+  handleIncrement: () => void;
+  handleDecrement: () => void;
+  handleDelete: () => void;
+}
+
+export const MenuItem: FC<Props> = ({ pizza }) => {
+  const [countPizza, setCountPizza] = useState<number>(0);
+
+  const handleActions = (
+    count: number,
+    setCount: React.Dispatch<React.SetStateAction<number>>,
+    object: Pizza,
+  ): ActionHandlers => {
+    const handleIncrement = (): void => {
+      setCount((prevState: number) => prevState + 1);
       console.log(`Added ${count + 1}, ${object.name} to cart`);
     };
 
     const handleDecrement = () => {
       if (count > 0) {
-        setCount((prevState) => prevState - 1);
+        setCount((prevState: number) => prevState - 1);
         console.log(`Added ${count - 1}, ${object.name} to cart`);
       }
     };
