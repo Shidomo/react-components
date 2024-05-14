@@ -1,8 +1,12 @@
 import "./menuStyle.css";
 import { MenuList } from "./MenuList.tsx";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useContext } from "react";
+import { UserContext } from "../../UserContext/UserContext.tsx";
+import { Navigate } from "react-router-dom";
 
 export const Menu: FC = () => {
+  const userContext = useContext(UserContext);
+  const { userName } = userContext;
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -33,6 +37,11 @@ export const Menu: FC = () => {
   if (error) {
     return <p>Error: {error}</p>;
   }
+
+  if (!userName) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <div className="pizza-container">
       <h2>Menu</h2>

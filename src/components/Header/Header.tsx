@@ -1,12 +1,16 @@
 import "./headerStyle.css";
 import { Link } from "react-router-dom";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useContext } from "react";
+import { UserContext } from "../../UserContext/UserContext.tsx";
 
 interface HeaderProps {
   children?: ReactNode;
 }
 
 export const Header: FC<HeaderProps> = ({ children }) => {
+  const userContext = useContext(UserContext);
+  const { userName } = userContext;
+
   return (
     <header className="header">
       <Link to="/" className="logo">
@@ -15,9 +19,13 @@ export const Header: FC<HeaderProps> = ({ children }) => {
       <Link to="/menu" className="logo">
         Menu
       </Link>
-      <Link to="/login" className="logo">
-        Login
-      </Link>
+      {userName ? (
+        <div> Welcome,{userName}</div>
+      ) : (
+        <Link to="/login" className="logo">
+          Login
+        </Link>
+      )}
       {children}
     </header>
   );

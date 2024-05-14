@@ -11,6 +11,7 @@ import { FC } from "react";
 
 const App: FC = () => {
   const RedirectToMain = () => <Navigate to="/" />;
+
   return (
     <>
       <Routes>
