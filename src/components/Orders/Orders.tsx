@@ -1,8 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Simulate } from "react-dom/test-utils";
-import reset = Simulate.reset;
 
 interface IFormInput {
   firstName: string;
