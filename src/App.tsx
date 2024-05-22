@@ -8,6 +8,7 @@ import { Layout } from "./pages/Layout.tsx";
 import { Login } from "./components/Login/Login.tsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { FC } from "react";
+import { Orders } from "./components/Orders/Orders.tsx";
 
 const App: FC = () => {
   const RedirectToMain = () => <Navigate to="/" />;
@@ -29,6 +30,8 @@ const App: FC = () => {
           />
           <Route path="/menu" element={<Menu />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/order/new" element={<Orders />} />
+
           <Route path="*" element={<RedirectToMain />} />
         </Route>
       </Routes>

@@ -26,6 +26,7 @@ export const Header: FC<HeaderProps> = ({ children }) => {
           Login
         </Link>
       )}
+      <Link to="/order/new">New Order</Link>
       {children}
     </header>
   );

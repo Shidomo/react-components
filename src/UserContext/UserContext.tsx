@@ -1,11 +1,11 @@
 import React, { createContext, useState, useMemo, FC } from "react";
 
-interface UserContextType {
+interface IUserContextType {
   userName: string;
   setUserName: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const UserContext = createContext<UserContextType | null>(null);
+export const UserContext = createContext<IUserContextType | null>(null);
 
 export const UserProvider: FC<{ children: React.ReactNode }> = ({
   children,

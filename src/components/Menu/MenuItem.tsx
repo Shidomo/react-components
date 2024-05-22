@@ -8,37 +8,37 @@ interface Pizza {
   unitPrice: number;
 }
 
-interface Props {
+interface IProps {
   pizza: Pizza;
 }
 
-interface ActionHandlers {
+interface IActionHandlers {
   handleIncrement: () => void;
   handleDecrement: () => void;
   handleDelete: () => void;
 }
 
-export const MenuItem: FC<Props> = ({ pizza }) => {
+export const MenuItem: FC<IProps> = ({ pizza }) => {
   const [countPizza, setCountPizza] = useState<number>(0);
 
   const handleActions = (
     count: number,
     setCount: React.Dispatch<React.SetStateAction<number>>,
     object: Pizza,
-  ): ActionHandlers => {
+  ): IActionHandlers => {
     const handleIncrement = (): void => {
       setCount((prevState: number) => prevState + 1);
       console.log(`Added ${count + 1}, ${object.name} to cart`);
     };
 
-    const handleDecrement = () => {
+    const handleDecrement = (): void => {
       if (count > 0) {
         setCount((prevState: number) => prevState - 1);
         console.log(`Added ${count - 1}, ${object.name} to cart`);
       }
     };
 
-    const handleDelete = () => {
+    const handleDelete = (): void => {
       setCount(0);
       console.log(`Deleted all count`);
     };
