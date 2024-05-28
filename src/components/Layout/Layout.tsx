@@ -1,7 +1,7 @@
-import { Header } from "../components/Header/Header.js";
+import { Header } from "../../pages/Header/Header.tsx";
 import { Outlet } from "react-router-dom";
-import { Input } from "../components/Input/Input.js";
-import { Form } from "../components/Form/Form.js";
+import { Input } from "../Input/Input.tsx";
+import { Form } from "../Form/Form.tsx";
 import { FC } from "react";
 
 export const Layout: FC = () => {

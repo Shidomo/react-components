@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { Form } from "../../components/Form/Form.tsx";
+import { Input } from "../../components/Input/Input.tsx";
 
 interface IFormInput {
   firstName: string;
@@ -29,45 +31,64 @@ export const Orders = () => {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
   const onSubmit = (data: IFormInput) => {
     console.log(data);
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form formClass="order-form" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
-        <input {...register("firstName")} />
+        <Input
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          register={register}
+        />
         {errors.firstName && <span>{errors.firstName.message}</span>}
       </div>
 
       <div>
         <label>Last Name</label>
-        <input {...register("lastName")} />
+        <Input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          register={register}
+        />
         {errors.lastName && <span>{errors.lastName.message}</span>}
       </div>
 
       <div>
         <label>Address</label>
-        <input {...register("address")} />
+        <Input
+          type="text"
+          placeholder="Address"
+          name="address"
+          register={register}
+        />
         {errors.address && <span>{errors.address.message}</span>}
       </div>
 
       <div>
         <label>Phone Number</label>
-        <input {...register("phone")} />
+        <Input
+          type="text"
+          placeholder="Phone Number"
+          name="phone"
+          register={register}
+        />
         {errors.phone && <span>{errors.phone.message}</span>}
       </div>
 
       <div>
         <label>
-          <input type="checkbox" {...register("priority")} />
+          <Input type="checkbox" name="priority" register={register} />
           Want to give order priority?
         </label>
       </div>
-      <button type="submit">Order now for</button>
-    </form>
+      <button type="submit">Order now</button>
+    </Form>
   );
 };
