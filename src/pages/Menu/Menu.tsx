@@ -9,7 +9,7 @@ import {
   getMenuItemsStart,
   getMenuItemsSuccess,
   getMenuItemsFailure,
-} from "../../redux/slices/menuSlice"; // Исправлен импорт экшенов для меню
+} from "../../redux/slices/menuSlice";
 
 export const Menu: FC = () => {
   const userContext = useContext(UserContext);

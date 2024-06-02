@@ -67,7 +67,7 @@ export const Orders = () => {
       alert("Something went wrong");
     }
 
-    reset(); // Сбросить значения формы после отправки
+    reset();
   };
 
   return (
