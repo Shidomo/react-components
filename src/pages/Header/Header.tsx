@@ -1,7 +1,7 @@
 import "./headerStyle.css";
 import { Link } from "react-router-dom";
 import { FC, ReactNode, useContext } from "react";
-import { UserContext } from "../../UserContext/UserContext.tsx";
+import { UserContext } from "../../Context/UserContext/UserContext.tsx";
 
 interface HeaderProps {
   children?: ReactNode;
@@ -27,6 +27,7 @@ export const Header: FC<HeaderProps> = ({ children }) => {
         </Link>
       )}
       <Link to="/order/new">New Order</Link>
+      <Link to="/counter">Counter</Link>
       {children}
     </header>
   );

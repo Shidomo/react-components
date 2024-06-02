@@ -1,6 +1,6 @@
 import { useState, useContext, FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../UserContext/UserContext.tsx";
+import { UserContext } from "../../Context/UserContext/UserContext.tsx";
 
 export const Login: FC = () => {
   const userContext = useContext(UserContext);

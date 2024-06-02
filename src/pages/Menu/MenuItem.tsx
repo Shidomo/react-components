@@ -1,6 +1,13 @@
 import React, { FC, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  deleteFromCart,
+  decrementFromCart,
+} from "../../redux/slices/cartSlice";
 
 interface Pizza {
+  id: string;
   name: string;
   imageUrl: string;
   ingredients: string[];
@@ -12,49 +19,31 @@ interface IProps {
   pizza: Pizza;
 }
 
-interface IActionHandlers {
-  handleIncrement: () => void;
-  handleDecrement: () => void;
-  handleDelete: () => void;
-}
-
 export const MenuItem: FC<IProps> = ({ pizza }) => {
   const [countPizza, setCountPizza] = useState<number>(0);
+  const dispatch = useDispatch();
 
-  const handleActions = (
-    count: number,
-    setCount: React.Dispatch<React.SetStateAction<number>>,
-    object: Pizza,
-  ): IActionHandlers => {
-    const handleIncrement = (): void => {
-      setCount((prevState: number) => prevState + 1);
-      console.log(`Added ${count + 1}, ${object.name} to cart`);
-    };
-
-    const handleDecrement = (): void => {
-      if (count > 0) {
-        setCount((prevState: number) => prevState - 1);
-        console.log(`Added ${count - 1}, ${object.name} to cart`);
-      }
-    };
-
-    const handleDelete = (): void => {
-      setCount(0);
-      console.log(`Deleted all count`);
-    };
-
-    return {
-      handleIncrement,
-      handleDecrement,
-      handleDelete,
-    };
+  const handleIncrement = (): void => {
+    setCountPizza((prevState: number) => prevState + 1);
+    dispatch(addToCart({ ...pizza, qty: 1 }));
   };
-  const countAction = handleActions(countPizza, setCountPizza, pizza);
+
+  const handleDecrement = (): void => {
+    if (countPizza > 0) {
+      setCountPizza((prevState: number) => prevState - 1);
+      dispatch(decrementFromCart(pizza.id));
+    }
+  };
+
+  const handleDelete = (): void => {
+    setCountPizza(0);
+    dispatch(deleteFromCart(pizza.id));
+  };
+  console.log({ ...pizza });
 
   return (
     <li className="pizza">
-      <img src={pizza.imageUrl} alt="anyPicture" className="pizza__image" />
-
+      <img src={pizza.imageUrl} alt={pizza.name} className="pizza__image" />
       <div className="pizza__info">
         <p className="pizza__name">{pizza.name}</p>
         <p className="pizza__ingredients">{pizza.ingredients.join(", ")}</p>
@@ -65,35 +54,17 @@ export const MenuItem: FC<IProps> = ({ pizza }) => {
             <div>
               <p className="pizza__price">€{pizza.unitPrice}</p>
               {countPizza === 0 ? (
-                <button
-                  className="button"
-                  onClick={() => {
-                    countAction.handleIncrement();
-                  }}
-                >
+                <button className="button" onClick={handleIncrement}>
                   Add to Cart
                 </button>
               ) : (
                 <div className="changeBtn">
-                  <button
-                    className="button"
-                    onClick={() => {
-                      countAction.handleIncrement();
-                    }}
-                  >
+                  <button className="button" onClick={handleIncrement}>
                     +
                   </button>
                   <span>{countPizza}</span>
-                  <button
-                    onClick={() => {
-                      countAction.handleDecrement();
-                    }}
-                  >
-                    -
-                  </button>
-                  <button onClick={() => countAction.handleDelete()}>
-                    Delete
-                  </button>
+                  <button onClick={handleDecrement}>-</button>
+                  <button onClick={handleDelete}>Delete</button>
                 </div>
               )}
             </div>

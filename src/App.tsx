@@ -9,6 +9,11 @@ import { Login } from "./pages/Login/Login.tsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { FC } from "react";
 import { Orders } from "./pages/Orders/Orders.tsx";
+import { Counter } from "./pages/Counter/Counter.tsx";
+import { NewMane } from "./components/newMane/NewMane.tsx";
+import { Cart } from "./components/Cart/Cart.tsx";
+import OrderDetails from "./pages/OrderDetails/OrderDetails.tsx";
+/*import { OrderDetails } from "./pages/OrderDetails/OrderDetails.tsx";*/
 
 const App: FC = () => {
   const RedirectToMain = () => <Navigate to="/" />;
@@ -31,10 +36,13 @@ const App: FC = () => {
           <Route path="/menu" element={<Menu />} />
           <Route path="/login" element={<Login />} />
           <Route path="/order/new" element={<Orders />} />
-
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/order/:id" element={<OrderDetails />} />
           <Route path="*" element={<RedirectToMain />} />
         </Route>
       </Routes>
+
+      {/*<Cart />*/}
     </>
   );
 };
